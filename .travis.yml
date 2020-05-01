@@ -24,6 +24,7 @@ install:
 # command to run tests
 script:
   - python 1.py
+  - copy 1.txt .\1\1.txt
   - dir
   - git add -A
   - git commit -m "更新`date +"% Y-% m-% d % H:% M"`Travis CI Auto Builder "
