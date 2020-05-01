@@ -22,13 +22,26 @@ install:
   - git config --global user.email tobctobc@protonmail.com
   - pip install requests
 # command to run tests
+
 script:
   - python 1.py
   - dir
   - git add -A
   - git commit -m "更新`date +"% Y-% m-% d % H:% M"`Travis CI Auto Builder "
-  - git push -f "https://tobctobc:${TOKEN}@github.com/tobctobc/plqa.git" master:2
-
+  - git push -f "https://tobctobc:${TOKEN}@github.com/tobctobc/plqa.git" master:dev
+  
+deploy:
+  # 部署到GitHub Release。
+  # 除此之外，Travis CI还支持发布到fir.im、AWS、Google App Engine等
+  provider: releases
+  # Github oauth token
+  api_key: ${TOKEN}
+  # 部署文件路径；对于Android就部署生成的 apk 文件
+  file: ./1.txt
+  # 避免 Travis CI在部署之前清空生成的APK文件
+  skip_cleanup: true
+  #on:
+    #all_branches: true
 branches:
   only:
     - master
