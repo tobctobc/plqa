@@ -24,6 +24,7 @@ install:
 # command to run tests
 script:
   - python 1.py
+  - dir
   - git add -A
   - git commit -m "更新`date +"% Y-% m-% d % H:% M"`Travis CI Auto Builder "
   - git push -f "https://tobctobc:${TOKEN}@github.com/tobctobc/plqa.git" master:2
