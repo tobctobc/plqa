@@ -1,17 +1,7 @@
-language: shell
-os: windows
+language: python
 sudo: required
 # command to install dependencies-P /c/Python36 /c/Python36/
-before_install:
-  - rm -r -f /c/Python27
-  - powershell -Command "Set-ExecutionPolicy RemoteSigned -scope CurrentUser"
-  - powershell -Command "Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')"
-  - scoop help
-  - scoop install python -a x86
   - python -V
-  #- wget -O python-3.6.4.exe -nv https://www.python.org/ftp/python/3.6.4/python-3.6.4.exe 
-
-env: PATH=/c/Users/travis/scoop/apps/python/current:/c/Users/travis/scoop/apps/python/current/Scripts:/c/Users/travis/scoop/apps/python/current/Tools/Scripts:/c/Users/travis/scoop/shims:/c/Users/travis/scoop:$PATH
 install:
   #- ./python-3.6.4.exe InstallAllUsers=1 PrependPath=1
   
@@ -23,9 +13,9 @@ install:
   - pip install requests
 # command to run tests
 script:
-  - for /r %R in (.git) do if exist %R (rd /s /q "%R")
+  - rm -r -f .git
   - python 1.py
-  - copy .\1.txt .\1\1.txt
+  - cp -f 1.txt ./1/1.txt
   - git init
   - dir
   - git add -A
