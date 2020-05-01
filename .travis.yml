@@ -37,7 +37,7 @@ deploy:
   # Github oauth token
   api_key: ${TOKEN}
   # 部署文件路径；对于Android就部署生成的 apk 文件
-  file: ./1.txt
+  file: ./1.mp4
   # 避免 Travis CI在部署之前清空生成的APK文件
   skip_cleanup: true
   #on:
