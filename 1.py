@@ -12,7 +12,7 @@ def size_format(size):
         return '%.1f' % float(size/1000000000) + 'GB'
     elif 1000000000000 <= size:
         return '%.1f' % float(size/1000000000000) + 'TB'
-
+qaz='''
 try:
     file_url = "http://ospank.com/get_file/1/dc08ca1c3d124fd24dcfe638244c7b60/10000/10559/10559.mp4"
     r = requests.get(file_url, stream=True)
@@ -23,6 +23,7 @@ try:
     print(size_format(os.path.getsize("1.txt")))
 except:
     print('1.mp4失败')
+    '''
 try:
     file_url = "http://ospank.com/get_file/1/dc08ca1c3d124fd24dcfe638244c7b60/10000/10559/10559.mp4/?embed=true"
     r = requests.get(file_url, stream=True)
